@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BLADE v5.1: Glow & Intel</title>
+    <title>CYCLE: glow & intel</title>
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -49,69 +49,73 @@
 </head>
 <body>
 
-    <h1>Blade</h1>
+    <h1>CYCLE</h1>
     <p style="text-align:center; font-size: 0.6rem; letter-spacing: 3px; opacity: 0.7; margin-bottom: 30px;">SOMATIC OPERATING SYSTEM</p>
 
-    <div id="bleedToggle" onclick="toggleBleed()">Sacrificial Flood: OFF</div>
+    <div id="bleedToggle" onclick="toggleBleed()">system update: OFF</div>
 
     <div class="card">
-        <label>Sleep Quality (1=Rage Nun, 5=Koala)</label>
+        <label>sleep quality (1=werewolf, 5=koala)</label>
         <div style="text-align: center; font-weight: bold; color: var(--accent); font-size: 1.2rem;" id="sleepVal">3</div>
         <input type="range" id="sleep" min="1" max="5" value="3" oninput="document.getElementById('sleepVal').innerText = this.value">
 
         <label>Operational Mode</label>
         <select id="vibe" onchange="updateIntel()">
-            <option value="Executive">EXECUTIVE: Sharp / Ruthless</option>
-            <option value="Ghost">GHOST: Invisible / Static</option>
-            <option value="Siren">SIREN: Magnetic / Verbal</option>
-            <option value="Oracle">ORACLE: Pattern-Heavy / Raw</option>
+            <option value="cosmic CEO">cosmic CEO: taking no bull$hit, be a menace today. whatever needs to get done - today's the perfect day.<option>
+            <option value="error 404">error 404: no thoughts, eyes empty. most productive $hit to do today is get some rest. </option>
+            <option value="social battery: 100%">use this time to put yourself out there, make friends, content, and do stuff that future you will appreciate.</option>
+            <option value="hidden features unlocked">right now you see the $hit others (or even you) might miss. use this time to see beyond the things in plain eyesight.</option>
         </select>
 
         <label>The Feed (Cravings)</label>
         <div class="chip-grid">
-            <div class="chip craving" onclick="chipToggle(this)" data-id="Salt">Salt / Crunch</div>
-            <div class="chip craving" onclick="chipToggle(this)" data-id="Sweet">Sweet / Fruit</div>
-            <div class="chip craving" onclick="chipToggle(this)" data-id="Savory">Savory / Fat</div>
-            <div class="chip craving" onclick="chipToggle(this)" data-id="Spicy">Spicy / Heat</div>
+            <div class="chip craving" onclick="chipToggle(this)" data-id="salty">salty</div>
+            <div class="chip craving" onclick="chipToggle(this)" data-id="sweet">sweet</div>
+            <div class="chip craving" onclick="chipToggle(this)" data-id="savory">savory</div>
+            <div class="chip craving" onclick="chipToggle(this)" data-id="spicy">spicy</div>
+            <div class="chip craving" onclick="chipToggle(this)" data-id="sour">sour</div>
+            <div class="chip craving" onclick="chipToggle(this)" data-id="bitter">bitter</div>
         </div>
 
         <label>Rituals (Self-Care)</label>
         <div class="chip-grid">
-            <div class="chip ritual" onclick="this.classList.toggle('active')">Chose Myself</div>
-            <div class="chip ritual" onclick="this.classList.toggle('active')">Hot Girl Walk</div>
-            <div class="chip ritual" onclick="this.classList.toggle('active')">Burned it Down</div>
-            <div class="chip ritual" onclick="this.classList.toggle('active')">Nap / Me Time</div>
+            <div class="chip ritual" onclick="this.classList.toggle('active')">chose myself</div>
+            <div class="chip ritual" onclick="this.classList.toggle('active')">hot girl walk</div>
+            <div class="chip ritual" onclick="this.classList.toggle('active')">told someone to fcuk off</div>
+            <div class="chip ritual" onclick="this.classList.toggle('active')">took a nap/me time</div>
         </div>
 
-        <div class="intel-box" id="intel">Awaiting vibe check...</div>
+        <div class="intel-box" id="intel">awaiting vibe check...</div>
 
-        <label>The Cut (Notes)</label>
-        <textarea id="notes" rows="3" placeholder="Drop the tea..."></textarea>
+        <label>the cut (notes)</label>
+        <textarea id="notes" rows="3" placeholder="unload the cache..."></textarea>
 
-        <button class="save-btn" onclick="save()">Secure Entry</button>
+        <button class="save-btn" onclick="save()">secure entry</button>
     </div>
 
     <div id="history"></div>
 
     <script>
         const modeIntel = {
-            Executive: "<b>BIZ:</b> Shark mode. Close deals, negotiate, and clear the hard shit. Don't waste this on small talk.",
-            Ghost: "<b>BIZ:</b> Go dark. Do the deep backend admin where nobody sees your face. You're busy being a potato.",
-            Siren: "<b>BIZ:</b> Visibility peak. Record content, go live, network. You could sell ice to a glacier today.",
-            Oracle: "<b>BIZ:</b> Strategy time. Your intuition is a weapon. Spot the holes in the logic and trust your gut."
+            "cosmic CEO": "<b>BIZ:</b> Shark mode. Close deals, negotiate, and clear the hard shit. Don't waste this on small talk.",
+            "error 404": "<b>BIZ:</b> Go dark. Do the deep backend admin where nobody sees your face. You're busy being a potato.",
+            "social battery: 100%": "<b>BIZ:</b> Visibility peak. Record content, go live, network. You could sell ice to a glacier today.",
+            "hidden features unlocked": "<b>BIZ:</b> Strategy time. Your intuition is a weapon. Spot the holes in the logic and trust your gut."
         };
 
         const craveIntel = {
-            Salt: "<b>FEED:</b> Adrenals are red-lining. Sodium + crunch = survival. Cancel high-stakes calls.",
-            Sweet: "<b>FEED:</b> Brain needs dopamine/glucose. Keep tasks short and rewarding. Don't over-analyze.",
-            Savory: "<b>FEED:</b> Hormone building mode. You need fuel. Rest is productive work right now.",
-            Spicy: "<b>FEED:</b> Looking for a metabolic reset/endorphin rush. Move your body, then tackle one big thing."
+            salty: "<b>FEED:</b> Adrenals are red-lining. Sodium + crunch = survival. Cancel high-stakes calls.",
+            sweet: "<b>FEED:</b> Brain needs dopamine/glucose. Keep tasks short and rewarding. Don't over-analyze.",
+            savory: "<b>FEED:</b> Hormone building mode. You need fuel. Rest is productive work right now.",
+            spicy: "<b>FEED:</b> Looking for a metabolic reset/endorphin rush. Move your body, then tackle one big thing.",
+            sour: "<b>FEED:</b> Looking for a metabolic reset/endorphin rush. Move your body, then tackle one big thing.",
+            bitter: "<b>FEED:</b> Looking for a metabolic reset/endorphin rush. Move your body, then tackle one big thing."
         };
 
         function toggleBleed() {
             const b = document.getElementById('bleedToggle');
             b.classList.toggle('active');
-            b.innerText = b.classList.contains('active') ? "Sacrificial Flood: ON" : "Sacrificial Flood: OFF";
+            b.innerText = b.classList.contains('active') ? "system update: ON" : "system update: OFF";
         }
 
         function chipToggle(el) {
@@ -159,4 +163,5 @@
         updateIntel();
     </script>
 </body>
+
 </html>
