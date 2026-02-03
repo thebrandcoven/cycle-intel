@@ -59,15 +59,15 @@
         <div style="text-align: center; font-weight: bold; color: var(--accent); font-size: 1.2rem;" id="sleepVal">3</div>
         <input type="range" id="sleep" min="1" max="5" value="3" oninput="document.getElementById('sleepVal').innerText = this.value">
 
-        <label>Operational Mode</label>
+        <label>operational mode</label>
         <select id="vibe" onchange="updateIntel()">
-            <option value="cosmic CEO">cosmic CEO: taking no bull$hit, be a menace today. whatever needs to get done - today's the perfect day.<option>
-            <option value="error 404">error 404: no thoughts, eyes empty. most productive $hit to do today is get some rest.</option>
-            <option value="social battery: 100%">social battery: 100%: use this time to put yourself out there, make friends, content, and do stuff that future you will appreciate.</option>
-            <option value="hidden features unlocked">hidden features unlocked: right now you see the $hit others (or even you) might miss. use this time to see beyond the things in plain eyesight.</option>
+            <option value="cosmic CEO">cosmic CEO: taking no bull$hit, be a menace today.</option>
+            <option value="error 404">error 404: no thoughts, eyes empty.</option>
+            <option value="social battery: 100%">social battery: 100%: time to put yourself out there.</option>
+            <option value="hidden features unlocked">hidden features unlocked: seeing beyond the surface.</option>
         </select>
 
-        <label>The Feed (Cravings)</label>
+        <label>battery refill</label>
         <div class="chip-grid">
             <div class="chip craving" onclick="chipToggle(this)" data-id="salty">salty</div>
             <div class="chip craving" onclick="chipToggle(this)" data-id="sweet">sweet</div>
@@ -75,6 +75,10 @@
             <div class="chip craving" onclick="chipToggle(this)" data-id="spicy">spicy</div>
             <div class="chip craving" onclick="chipToggle(this)" data-id="sour">sour</div>
             <div class="chip craving" onclick="chipToggle(this)" data-id="bitter">bitter</div>
+            <div class="chip craving" onclick="chipToggle(this)" data-id="crunchy">crunchy</div>
+            <div class="chip craving" onclick="chipToggle(this)" data-id="soft_or_creamy">soft/creamy</div>
+            <div class="chip craving" onclick="chipToggle(this)" data-id="warm">warm</div>
+            <div class="chip craving" onclick="chipToggle(this)" data-id="cold">cold</div>
         </div>
 
         <label>Rituals (Self-Care)</label>
@@ -97,19 +101,24 @@
 
     <script>
         const modeIntel = {
-            "cosmic CEO": "<b>BIZ:</b> Shark mode. Close deals, negotiate, and clear the hard shit. Don't waste this on small talk.",
-            "error 404": "<b>BIZ:</b> Go dark. Do the deep backend admin where nobody sees your face. You're busy being a potato.",
-            "social battery: 100%": "<b>BIZ:</b> Visibility peak. Record content, go live, network. You could sell ice to a glacier today.",
-            "hidden features unlocked": "<b>BIZ:</b> Strategy time. Your intuition is a weapon. Spot the holes in the logic and trust your gut."
+            "cosmic CEO": "<b>BIZ:</b> whatever needs to be done - today's the day. especially if it's something you'd rather not touch on a regular day.",
+            "error 404": "<b>BIZ:</b> most productive $hit you can do today is rest. if you have the energy for some backend stuff and admin - great idea.",
+            "social battery: 100%": "<b>BIZ:</b> use this time to create, doesn't matter if it's new connections, friends or content. this is your time to shine and be magnetic AF.",
+            "hidden features unlocked": "<b>BIZ:</b> right now you have insane pattern recognition & attention to detail. use this time to do strategy $hit, fix up stuff that has been lacking and other things where you need a deeper insight."
         };
 
         const craveIntel = {
-            salty: "<b>FEED:</b> Adrenals are red-lining. Sodium + crunch = survival. Cancel high-stakes calls.",
-            sweet: "<b>FEED:</b> Brain needs dopamine/glucose. Keep tasks short and rewarding. Don't over-analyze.",
-            savory: "<b>FEED:</b> Hormone building mode. You need fuel. Rest is productive work right now.",
-            spicy: "<b>FEED:</b> Looking for a metabolic reset/endorphin rush. Move your body, then tackle one big thing.",
-            sour: "<b>FEED:</b> Looking for a metabolic reset/endorphin rush. Move your body, then tackle one big thing.",
-            bitter: "<b>FEED:</b> Looking for a metabolic reset/endorphin rush. Move your body, then tackle one big thing."
+            salty: "<b>FUEL:</b> your body wants minerals, also might be a stress response. adrenals might be activated messing with your cortisol levels. pay attention to heart rate, bloosd pressure and metabolism",
+            sweet: "<b>FUEL:</b> your blood sugar might be dipping, your body needs quick fuel. possible dopamine and/or serotonin lack. pay attention to memory, moods, sleep and your immune system.",
+            savory: "<b>FUEL:</b> your body is craving repair on cellular level which needs protein, iron and B-vitamins. pay attention to levels of fatigue and reduce your mental load if possible.",
+            spicy: "<b>FUEL:</b> your body needs some stimulation it has control over. your system might crave endorphins, pay attention to pain in your body & overall levels of well-being.",
+            sour: "<b>FUEL:</b> your system wants a digestive reboot. pay attention to your gut.",
+            bitter: "<b>FUEL:</b> your body might need help with detoxing (liver needs a boost). pay attention to your gut/body, there's a possibility of inflammation.",
+            crunchy: "<b>NEED:</b> your body wants to discharge tension/stress. might be mental overstimulation and/or anxiety. a short grounding technique and a crunchy snack might help release that tension.",
+            "soft_or_creamy": "<b>NEED:</b> your body craves the feeling of safety & gentleness. pay attention to your emotions and seek support if you need a helping hand.",
+            warm: "<b>NEED:</b> your body craves grounding and safety. pay attention to your digestion and stress/anxiety levels. seek support if you feel overwhelmed with life.",
+            cold: "<b>NEED:</b> your body wants stimulation or inflammation relief. pay attention to mental fog/numbness."
+
         };
 
         function toggleBleed() {
@@ -165,4 +174,5 @@
 </body>
 
 </html>
+
 
